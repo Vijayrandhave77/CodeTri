@@ -1,0 +1,36 @@
+:root {
+  --font-primary: 'Inter', sans-serif;
+  --font-secondary: 'Poppins', sans-serif;
+}
+
+.font-primary {
+  font-family: var(--font-primary);
+}
+
+.font-secondary {
+  font-family: var(--font-secondary);
+}
+
+/* Heading styles */
+.font-heading {
+  font-family: var(--font-secondary);
+  font-weight: 600;
+}
+
+/* Body text styles */
+.font-body {
+  font-family: var(--font-primary);
+  font-weight: 400;
+}
+
+/* Button styles */
+.font-button {
+  font-family: var(--font-secondary);
+  font-weight: 500;
+}
+
+/* Navigation styles */
+.font-nav {
+  font-family: var(--font-secondary);
+  font-weight: 500;
+}
