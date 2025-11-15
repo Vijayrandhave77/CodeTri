@@ -7,6 +7,8 @@ import Portfolio from './components/Portfolio';
 import Technologies from './components/Technologies';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import PricingPage from './components/PricingPage.jsx';
+import PricingSection from './components/PricingSection';
 
 function App() {
   return (
@@ -22,12 +24,14 @@ function App() {
               <Services />
               <Portfolio />
               <Technologies />
+              <PricingSection />
               <Contact />
             </>
           } />
           
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/pricing" element={<PricingPage />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
