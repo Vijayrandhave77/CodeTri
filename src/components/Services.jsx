@@ -1,76 +1,93 @@
-import React, { useEffect } from 'react';
-import { FaLaptopCode, FaMobileAlt, FaPaintBrush, FaCloud, FaLink } from 'react-icons/fa';
-import { motion } from 'framer-motion';
-import { fadeIn, slideUp, staggerContainer } from '../utils/animations';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import React, { useEffect } from "react";
+import {
+  FaLaptopCode,
+  FaMobileAlt,
+  FaPaintBrush,
+  FaCloud,
+  FaLink,
+} from "react-icons/fa";
+import { motion } from "framer-motion";
+import { fadeIn } from "../utils/animations";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Services = () => {
   useEffect(() => {
     AOS.init({
-      duration: 1000,
+      duration: 900,
       once: true,
-      offset: 100
+      offset: 120,
     });
   }, []);
 
   const services = [
     {
       title: "Fullstack Web Development",
-      description: "Complete web solutions from frontend to backend",
-      icon: FaLaptopCode
+      description:
+        "Complete, scalable and secure web solutions – frontend to backend.",
+      icon: FaLaptopCode,
     },
     {
       title: "Mobile App Development",
-      description: "Native and cross-platform mobile applications",
-      icon: FaMobileAlt
+      description: "High-performance native and cross-platform mobile apps.",
+      icon: FaMobileAlt,
     },
     {
       title: "UI/UX Design",
-      description: "Modern and intuitive user interfaces",
-      icon: FaPaintBrush
+      description:
+        "Premium UI/UX with modern, clean and intuitive experiences.",
+      icon: FaPaintBrush,
     },
     {
       title: "Cloud & DevOps",
-      description: "Scalable cloud solutions and automated deployment",
-      icon: FaCloud
+      description: "Cloud deployment, automation & reliable DevOps pipelines.",
+      icon: FaCloud,
     },
     {
       title: "API Integrations",
-      description: "Seamless integration with third-party services",
-      icon: FaLink
-    }
+      description: "Secure and seamless integration with third-party systems.",
+      icon: FaLink,
+    },
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-24 bg-white">
       <div className="container mx-auto px-4">
+        {/* Section Title */}
         <motion.h2
           variants={fadeIn}
           initial="hidden"
           animate="visible"
-          className="text-3xl font-bold text-gray-900 mb-12 text-center"
+          className="text-4xl md:text-5xl font-bold text-center text-[#093A66] mb-16"
         >
           Our Services
         </motion.h2>
 
+        {/* Services Grid */}
         <div
           data-aos="fade-up"
-          data-aos-duration="1000"
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10"
         >
           {services.map((service, index) => (
             <div
               key={index}
               data-aos="zoom-in"
-              data-aos-duration="1000"
-              className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
+              className="bg-white p-8 rounded-2xl shadow-[0_3px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.12)] transition-all duration-300 border border-gray-100"
             >
-              <div className="text-4xl mb-4 text-blue-600">
+              {/* Icon */}
+              <div className="text-5xl mb-6 text-[#0A67B1]">
                 <service.icon />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">{service.title}</h3>
-              <p className="text-gray-600">{service.description}</p>
+
+              {/* Title */}
+              <h3 className="text-xl font-semibold text-gray-900 mb-3 tracking-wide">
+                {service.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-gray-600 leading-relaxed">
+                {service.description}
+              </p>
             </div>
           ))}
         </div>

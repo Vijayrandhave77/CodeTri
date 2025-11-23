@@ -1,122 +1,146 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { fadeIn, slideLeft, slideRight, staggerContainer } from '../utils/animations';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { fadeIn, slideLeft, slideRight } from "../utils/animations";
+import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add form submission logic here
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
   };
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section className="py-24 bg-gradient-to-br from-gray-50 to-white">
+      <div className="container mx-auto px-6">
         <motion.h2
           variants={fadeIn}
           initial="hidden"
           animate="visible"
-          className="text-3xl font-bold text-gray-900 mb-12 text-center"
+          className="text-4xl font-semibold text-gray-900 mb-12 text-center tracking-tight"
         >
-          Let's Build Something Great
+          Get in Touch With Us
         </motion.h2>
-        
-        <div className="grid md:grid-cols-2 gap-12">
-          <motion.div
-            variants={slideLeft}
-            initial="hidden"
-            animate="visible"
-            className="space-y-6"
-          >
-            <h3 className="text-2xl font-semibold text-gray-900">Get in Touch</h3>
-            <div className="space-y-4">
-              <div className="flex items-start gap-3 p-4 bg-white rounded-lg shadow-sm">
-                <FaEnvelope className="text-blue-600 text-xl" />
+
+        <div className="grid md:grid-cols-2 gap-16">
+          {/* Left Contact Info */}
+          <motion.div variants={slideLeft} initial="hidden" animate="visible">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              Contact Information
+            </h3>
+
+            <p className="text-gray-600 leading-relaxed mb-8">
+              Have a project in mind or need help with your product? Our team
+              will get back to you as soon as possible.
+            </p>
+
+            <div className="space-y-5">
+              {/* Email */}
+              <div className="flex items-start gap-4 bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                <div className="bg-blue-100 p-3 rounded-full">
+                  <FaEnvelope className="text-blue-600 text-xl" />
+                </div>
                 <div>
-                  <h4 className="font-medium">Email</h4>
-                  <p className="text-gray-600">contact@kodetri.com</p>
+                  <h4 className="font-semibold text-gray-900">Email</h4>
+                  <p className="text-gray-600 text-sm">
+                    kodetritechnologies@gmail.com
+                  </p>
                 </div>
               </div>
-              <div className="flex items-start gap-3 p-4 bg-white rounded-lg shadow-sm">
-                <FaPhone className="text-blue-600 text-xl" />
+
+              {/* Phone */}
+              <div className="flex items-start gap-4 bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                <div className="bg-blue-100 p-3 rounded-full">
+                  <FaPhone className="text-blue-600 text-xl" />
+                </div>
                 <div>
-                  <h4 className="font-medium">Phone</h4>
-                  <p className="text-gray-600">+1 234 567 8900</p>
+                  <h4 className="font-semibold text-gray-900">Phone</h4>
+                  <p className="text-gray-600 text-sm">+91 8103292287</p>
                 </div>
               </div>
-              <div className="flex items-start gap-3 p-4 bg-white rounded-lg shadow-sm">
-                <FaMapMarkerAlt className="text-blue-600 text-xl" />
+
+              {/* Location */}
+              <div className="flex items-start gap-4 bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                <div className="bg-blue-100 p-3 rounded-full">
+                  <FaMapMarkerAlt className="text-blue-600 text-xl" />
+                </div>
                 <div>
-                  <h4 className="font-medium">Location</h4>
-                  <p className="text-gray-600">123 Tech Street, Silicon Valley, CA</p>
+                  <h4 className="font-semibold text-gray-900">Location</h4>
+                  <p className="text-gray-600 text-sm">
+                    Indore, Madhya Pradesh (Remote Office)
+                  </p>
                 </div>
               </div>
             </div>
           </motion.div>
 
-          <motion.div
-            variants={slideRight}
-            initial="hidden"
-            animate="visible"
-            className="max-w-2xl mx-auto"
-          >
-            <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Contact Form */}
+          <motion.div variants={slideRight} initial="hidden" animate="visible">
+            <form
+              onSubmit={handleSubmit}
+              className="bg-white p-8 rounded-2xl shadow-md border border-gray-100 space-y-6"
+            >
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Full Name
+                </label>
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="Your name"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 
+                  focus:ring-blue-500 focus:border-blue-500 outline-none bg-gray-50"
+                  placeholder="Enter your name"
                 />
               </div>
-              
+
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Email Address
+                </label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="Your email"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 
+                  focus:ring-blue-500 focus:border-blue-500 outline-none bg-gray-50"
+                  placeholder="Enter your email"
                 />
               </div>
-              
+
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Your Message
+                </label>
                 <textarea
                   name="message"
+                  rows="5"
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  rows={4}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="Your message"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 
+                  focus:ring-blue-500 focus:border-blue-500 outline-none bg-gray-50"
+                  placeholder="Write your message..."
                 />
               </div>
-              
+
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                className="w-full bg-blue-600 text-white py-3 rounded-lg text-lg font-medium 
+                shadow-md hover:bg-blue-700 transition duration-200"
               >
                 Send Message
               </button>

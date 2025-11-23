@@ -1,12 +1,12 @@
-import { 
-  FaReact, 
-  FaNodeJs, 
+import {
+  FaReact,
+  FaNodeJs,
   FaCss3Alt,
   FaDatabase,
   FaFire,
   FaCloud,
-  FaGithub 
-} from 'react-icons/fa';
+  FaGithub,
+} from "react-icons/fa";
 
 const Technologies = () => {
   const techStack = [
@@ -16,7 +16,7 @@ const Technologies = () => {
     { name: "MongoDB", Icon: FaDatabase },
     { name: "Firebase", Icon: FaFire },
     { name: "AWS", Icon: FaCloud },
-    { name: "GitHub", Icon: FaGithub }
+    { name: "GitHub", Icon: FaGithub },
   ];
 
   return (
@@ -25,7 +25,7 @@ const Technologies = () => {
         <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
           Our Tech Stack
         </h2>
-        
+
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8">
           {techStack.map((tech, index) => (
             <div key={index} className="text-center p-4">
@@ -33,7 +33,9 @@ const Technologies = () => {
                 <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-4">
                   <tech.Icon className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-base font-medium text-gray-900">{tech.name}</h3>
+                <h3 className="text-base font-medium text-gray-900">
+                  {tech.name}
+                </h3>
               </div>
             </div>
           ))}
