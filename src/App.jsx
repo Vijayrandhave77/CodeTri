@@ -20,7 +20,7 @@ function App() {
           <Route path="/" element={
             <>
               <Hero />
-              <About />
+              <About /> 
               <Services />
               <Portfolio />
               <Technologies />
