@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { Link, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,36 +24,50 @@ const Navbar = () => {
     { name: "Contact", path: "/contact" },
   ];
 
+  const isActive = (path) => location.pathname === path;
+
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-lg" : "bg-white"
+      className={`fixed w-full z-50 transition-all duration-300 backdrop-blur-lg ${
+        isScrolled ? "bg-white/80 shadow-lg" : "bg-white/60"
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
+          {/* Logo */}
           <Link to="/" className="text-2xl font-bold">
-            <motion.span whileHover={{ scale: 1.1 }}>
-              <img src="/sublogo.png" alt="logo" width={90} />
-            </motion.span>
+            <motion.img
+              src="/sublogo.png"
+              alt="logo"
+              className="w-24 md:w-28"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            />
           </Link>
 
           {/* Desktop Menu */}
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
             className="hidden md:flex space-x-8"
           >
             {menuItems.map((item) => (
-              <Link key={item.name} to={item.path} className="group relative">
-                <span className="block px-2 py-1 text-brand hover:text-blue-500 transition-colors">
+              <Link key={item.name} to={item.path} className="relative group">
+                <span
+                  className={`px-2 py-1 transition-colors font-medium ${
+                    isActive(item.path)
+                      ? "text-blue-600"
+                      : "text-gray-600 group-hover:text-blue-500"
+                  }`}
+                >
                   {item.name}
                 </span>
+
+                {/* Gradient hover underline */}
                 <motion.span
                   initial={{ width: 0 }}
                   whileHover={{ width: "100%" }}
-                  className="absolute bottom-0 left-0 h-0.5 bg-blue-500 rounded-full transition-all duration-300"
+                  className="absolute bottom-0 left-0 h-0.5 rounded-full bg-gradient-to-r from-blue-500 to-blue-700"
                 />
               </Link>
             ))}
@@ -60,11 +75,9 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <motion.button
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-brand"
+            className="md:hidden text-gray-700"
+            whileTap={{ scale: 0.9 }}
           >
             <svg
               className="w-7 h-7"
@@ -92,34 +105,54 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-          className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg rounded-b-lg"
-        >
-          <div className="px-4 py-3 space-y-2">
-            {menuItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                className="block px-3 py-2 text-brand hover:bg-gray-100 rounded-md transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                <div className="flex items-center justify-between">
-                  <span>{item.name}</span>
-                  <motion.span
-                    whileHover={{ scale: 1.2 }}
-                    className="w-3.5 h-3.5 rounded-full bg-blue-500"
-                  />
-                </div>
-              </Link>
-            ))}
-          </div>
-        </motion.div>
-      )}
+      {/* Mobile Menu + Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            {/* Overlay */}
+            <motion.div
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm md:hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+            />
+
+            {/* Mobile Menu */}
+            <motion.div
+              initial={{ y: -30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -30, opacity: 0 }}
+              className="absolute top-full left-0 right-0 bg-white shadow-xl md:hidden rounded-b-xl"
+            >
+              <div className="px-4 py-4 space-y-2">
+                {menuItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    onClick={() => setIsOpen(false)}
+                    className="block px-3 py-3 rounded-lg flex justify-between items-center"
+                  >
+                    <span
+                      className={`text-lg ${
+                        isActive(item.path)
+                          ? "text-blue-600 font-semibold"
+                          : "text-gray-700"
+                      }`}
+                    >
+                      {item.name}
+                    </span>
+                    <motion.span
+                      whileHover={{ scale: 1.2 }}
+                      className="w-3.5 h-3.5 rounded-full bg-blue-500"
+                    />
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

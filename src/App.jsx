@@ -10,6 +10,11 @@ import Footer from "./components/Footer";
 import PricingPage from "./components/PricingPage.jsx";
 import PricingSection from "./components/PricingSection";
 import AboutPage from "./components/AboutPage.jsx";
+import Blog from "./components/Blog.jsx";
+import Testimonial from "./components/Testimonial.jsx";
+import Faqs from "./components/Faqs.jsx";
+import Terms from "./pages/Terms.jsx";
+import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
 
 function App() {
   return (
@@ -25,9 +30,12 @@ function App() {
                 <Hero />
                 <About />
                 <Services />
-                <Portfolio />
                 <Technologies />
+                <Portfolio />
                 <PricingSection />
+                <Blog />
+                <Testimonial />
+                <Faqs />
                 <Contact />
               </>
             }
@@ -38,6 +46,8 @@ function App() {
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/terms-conditions" element={<Terms />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
 
         <Footer />
