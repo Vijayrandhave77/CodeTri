@@ -44,40 +44,44 @@ const PricingSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
-      <div className="container mx-auto px-4">
-        {/* Section Header */}
+    <section className="relative w-full py-24 overflow-hidden">
+      {/* Corporate Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-[#EAF3FA] to-white"></div>
+
+      <div className="relative container mx-auto px-4">
+        {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#093A66] mb-3">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#093A66] mb-4">
             Our Pricing Plans
           </h2>
-          <p className="text-gray-700 max-w-2xl mx-auto text-lg">
+          <p className="text-[#093A66]/80 max-w-2xl mx-auto text-lg">
             Choose the perfect plan designed to scale with your business.
           </p>
         </div>
 
-        {/* Pricing Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        {/* Pricing Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {plans.map((plan, idx) => (
             <div
               key={idx}
-              className={`rounded-2xl p-8 shadow-lg border transition-all 
-                ${
-                  plan.popular
-                    ? "border-[#093A66] shadow-xl scale-105 bg-gradient-to-b from-[#093A66]/10 to-white"
-                    : "border-gray-200 bg-white hover:shadow-xl"
-                }
-              `}
+              className={`relative rounded-3xl p-10 shadow-[0_4px_16px_rgba(0,0,0,0.06)] 
+            hover:shadow-[0_8px_28px_rgba(0,0,0,0.12)] transition-all duration-300 border
+            ${
+              plan.popular
+                ? "border-[#093A66] bg-gradient-to-b from-[#093A66]/10 to-white scale-105"
+                : "border-gray-200 bg-white"
+            }
+          `}
             >
-              {/* Popular Badge */}
+              {/* Badge */}
               {plan.popular && (
-                <p className="text-sm mb-3 inline-block bg-[#093A66] text-white px-4 py-1 rounded-full">
+                <span className="absolute top-4 right-4 bg-[#093A66] text-white text-xs px-3 py-1 rounded-full shadow-md">
                   Most Popular
-                </p>
+                </span>
               )}
 
               {/* Title */}
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold text-[#093A66] mb-4">
                 {plan.name}
               </h3>
 
@@ -89,9 +93,9 @@ const PricingSection = () => {
               </div>
 
               {/* Features */}
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-3 mb-10">
                 {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-center text-gray-700">
+                  <li key={i} className="flex items-center text-[#093A66]/80">
                     <svg
                       className="w-5 h-5 text-green-600 mr-3"
                       fill="none"
@@ -112,13 +116,13 @@ const PricingSection = () => {
 
               {/* Button */}
               <button
-                className={`w-full py-3 rounded-xl text-white font-semibold transition-all 
-                  ${
-                    plan.popular
-                      ? "bg-[#093A66] hover:bg-[#072a4a]"
-                      : "bg-[#093A66] hover:bg-[#072a4a]"
-                  }
-                `}
+                className={`w-full py-3 rounded-xl text-white font-semibold transition-all
+              ${
+                plan.popular
+                  ? "bg-[#093A66] hover:bg-[#072a4a]"
+                  : "bg-[#093A66] hover:bg-[#072a4a]"
+              }
+            `}
               >
                 {plan.button}
               </button>

@@ -38,8 +38,11 @@ const About = () => {
   ];
 
   return (
-    <section className="py-24 bg-white">
-      <div className="container mx-auto px-6">
+    <section className="relative w-full py-24 overflow-hidden">
+      {/* Corporate Light Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-[#EAF3FA] to-white"></div>
+
+      <div className="relative container mx-auto px-6">
         {/* Title */}
         <motion.h2
           variants={fadeIn}
@@ -62,7 +65,7 @@ const About = () => {
               className="w-full h-72 object-cover"
             />
 
-            {/* Soft Gradient Overlay */}
+            {/* Soft Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#093A66]/70 to-transparent"></div>
 
             <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -73,14 +76,14 @@ const About = () => {
             </div>
           </div>
 
-          {/* Right Values Cards */}
+          {/* Right Cards */}
           <div data-aos="fade-up" className="grid grid-cols-2 gap-6">
             {values.map((value, index) => (
               <div
                 key={index}
                 data-aos="fade-up"
                 className="p-6 rounded-xl bg-[#F2F7FB] border border-[#093A66]/10 shadow-sm 
-                           hover:shadow-md transition-all"
+            hover:shadow-md transition-all"
               >
                 <div className="flex items-center gap-3 mb-3">
                   <i className={`${value.icon} text-2xl text-[#0A4B78]`} />

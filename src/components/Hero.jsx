@@ -14,10 +14,10 @@ const Hero = () => {
       {/* Soft Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-[#E9F3FA] to-white"></div>
 
-      {/* Soft Corporate Glow Elements */}
+      {/* Corporate Glow */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-40 h-40 bg-[#0A4B78]/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-48 h-48 bg-[#0A4B78]/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-16 left-20 w-60 h-60 bg-[#0A4B78]/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-72 h-72 bg-[#0A4B78]/10 rounded-full blur-3xl"></div>
       </div>
 
       {/* Content */}
@@ -26,35 +26,39 @@ const Hero = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-3xl mx-auto space-y-8"
+          className="max-w-4xl mx-auto space-y-10"
         >
-          {/* Heading */}
-          <h1 className="text-5xl md:text-6xl font-bold leading-tight text-[#093A66]">
-            Empowering Your
-            <span className="block text-[#0A4B78]">Digital Transformation</span>
+          {/* Main Heading */}
+          <h1 className="text-5xl md:text-6xl font-extrabold leading-[1.2] text-[#093A66] drop-shadow-sm">
+            Build Modern & Scalable
+            <span className="block text-[#0A4B78] mt-2">
+              Digital Products with Confidence
+            </span>
           </h1>
 
           {/* Subheading */}
-          <p className="text-lg md:text-xl text-[#093A66]/80 max-w-2xl mx-auto">
-            Smart, scalable, and modern digital solutions to accelerate your
-            business growth.
+          <p className="text-lg md:text-xl text-[#093A66]/80 max-w-2xl mx-auto leading-relaxed">
+            We create high-performance websites, mobile apps, and custom digital
+            solutions that help your business grow faster and smarter.
           </p>
 
-          {/* CTA Button */}
+          {/* Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.2 }}
+            className="flex flex-wrap justify-center gap-6"
           >
+            {/* Primary CTA */}
             <a
               href="#contact"
               onMouseEnter={() => setHovered(true)}
               onMouseLeave={() => setHovered(false)}
-              className="inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold 
-                         bg-[#093A66] text-white shadow-md hover:bg-[#0A4B78] transition-all 
-                         duration-300 hover:shadow-lg"
+              className="relative inline-flex items-center justify-center px-9 py-4 rounded-full 
+                         bg-[#093A66] text-white font-semibold shadow-md hover:bg-[#0A4B78] 
+                         transition-all duration-300 hover:shadow-xl"
             >
-              Get Started
+              Start Your Project
               <svg
                 className="ml-2 w-5 h-5"
                 fill="none"
@@ -69,21 +73,28 @@ const Hero = () => {
                 />
               </svg>
               {hovered && (
-                <span className="absolute -right-10 top-1/2 -translate-y-1/2 w-24 h-24 bg-[#093A66]/10 rounded-full blur-2xl"></span>
+                <span
+                  className="absolute -right-10 top-1/2 -translate-y-1/2 w-20 h-20 
+                                 bg-[#093A66]/10 rounded-full blur-2xl"
+                ></span>
               )}
+            </a>
+
+            {/* Secondary CTA */}
+            <a
+              href="#services"
+              className="px-9 py-4 rounded-full font-semibold border border-[#093A66] 
+                         text-[#093A66] hover:bg-[#093A66] hover:text-white 
+                         transition-all duration-300"
+            >
+              View Services
             </a>
           </motion.div>
 
-          {/* Hash Tags */}
-          <div className="flex flex-wrap gap-4 justify-center mt-12 text-[#093A66]">
-            <span className="text-sm font-medium opacity-70">
-              #CorporateTech
-            </span>
-            <span className="text-sm font-medium opacity-70">
-              #DigitalSolutions
-            </span>
-            <span className="text-sm font-medium opacity-70">#KodeTri</span>
-          </div>
+          {/* Social Proof */}
+          <p className="mt-10 text-sm tracking-wide text-[#093A66]/70">
+            Trusted by businesses for high-quality development & design.
+          </p>
         </motion.div>
       </div>
     </section>

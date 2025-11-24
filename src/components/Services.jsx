@@ -51,8 +51,11 @@ const Services = () => {
   ];
 
   return (
-    <section className="py-24 bg-white">
-      <div className="container mx-auto px-4">
+    <section className="relative w-full py-24 overflow-hidden">
+      {/* Corporate Light Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-[#EAF3FA] to-white"></div>
+
+      <div className="relative container mx-auto px-4">
         {/* Section Title */}
         <motion.h2
           variants={fadeIn}
@@ -72,7 +75,9 @@ const Services = () => {
             <div
               key={index}
               data-aos="zoom-in"
-              className="bg-white p-8 rounded-2xl shadow-[0_3px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.12)] transition-all duration-300 border border-gray-100"
+              className="bg-white p-8 rounded-2xl shadow-[0_3px_12px_rgba(0,0,0,0.08)] 
+                     hover:shadow-[0_6px_20px_rgba(0,0,0,0.12)] transition-all duration-300 
+                     border border-gray-100"
             >
               {/* Icon */}
               <div className="text-5xl mb-6 text-[#0A67B1]">
@@ -80,12 +85,12 @@ const Services = () => {
               </div>
 
               {/* Title */}
-              <h3 className="text-xl font-semibold text-gray-900 mb-3 tracking-wide">
+              <h3 className="text-xl font-semibold text-[#093A66] mb-3 tracking-wide">
                 {service.title}
               </h3>
 
               {/* Description */}
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-[#093A66]/75 leading-relaxed">
                 {service.description}
               </p>
             </div>

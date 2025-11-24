@@ -20,13 +20,14 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-br from-gray-50 to-white">
+    <section className="py-24 bg-gradient-to-b from-white via-[#EAF3FA] to-white">
       <div className="container mx-auto px-6">
+        {/* Heading */}
         <motion.h2
           variants={fadeIn}
           initial="hidden"
           animate="visible"
-          className="text-4xl font-semibold text-gray-900 mb-12 text-center tracking-tight"
+          className="text-4xl md:text-5xl font-bold text-[#093A66] mb-12 text-center"
         >
           Get in Touch With Us
         </motion.h2>
@@ -34,7 +35,7 @@ const Contact = () => {
         <div className="grid md:grid-cols-2 gap-16">
           {/* Left Contact Info */}
           <motion.div variants={slideLeft} initial="hidden" animate="visible">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+            <h3 className="text-2xl font-bold text-[#093A66] mb-6">
               Contact Information
             </h3>
 
@@ -45,12 +46,12 @@ const Contact = () => {
 
             <div className="space-y-5">
               {/* Email */}
-              <div className="flex items-start gap-4 bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition">
-                <div className="bg-blue-100 p-3 rounded-full">
-                  <FaEnvelope className="text-blue-600 text-xl" />
+              <div className="flex items-start gap-4 bg-white p-5 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition">
+                <div className="bg-[#093A66]/10 p-3 rounded-full">
+                  <FaEnvelope className="text-[#093A66] text-xl" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900">Email</h4>
+                  <h4 className="font-semibold text-[#093A66]">Email</h4>
                   <p className="text-gray-600 text-sm">
                     kodetritechnologies@gmail.com
                   </p>
@@ -58,23 +59,23 @@ const Contact = () => {
               </div>
 
               {/* Phone */}
-              <div className="flex items-start gap-4 bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition">
-                <div className="bg-blue-100 p-3 rounded-full">
-                  <FaPhone className="text-blue-600 text-xl" />
+              <div className="flex items-start gap-4 bg-white p-5 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition">
+                <div className="bg-[#093A66]/10 p-3 rounded-full">
+                  <FaPhone className="text-[#093A66] text-xl" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900">Phone</h4>
+                  <h4 className="font-semibold text-[#093A66]">Phone</h4>
                   <p className="text-gray-600 text-sm">+91 8103292287</p>
                 </div>
               </div>
 
               {/* Location */}
-              <div className="flex items-start gap-4 bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition">
-                <div className="bg-blue-100 p-3 rounded-full">
-                  <FaMapMarkerAlt className="text-blue-600 text-xl" />
+              <div className="flex items-start gap-4 bg-white p-5 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition">
+                <div className="bg-[#093A66]/10 p-3 rounded-full">
+                  <FaMapMarkerAlt className="text-[#093A66] text-xl" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900">Location</h4>
+                  <h4 className="font-semibold text-[#093A66]">Location</h4>
                   <p className="text-gray-600 text-sm">
                     Indore, Madhya Pradesh (Remote Office)
                   </p>
@@ -83,14 +84,14 @@ const Contact = () => {
             </div>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* Right Form */}
           <motion.div variants={slideRight} initial="hidden" animate="visible">
             <form
               onSubmit={handleSubmit}
-              className="bg-white p-8 rounded-2xl shadow-md border border-gray-100 space-y-6"
+              className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 space-y-6"
             >
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-[#093A66] mb-2">
                   Full Name
                 </label>
                 <input
@@ -99,14 +100,15 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 
-                  focus:ring-blue-500 focus:border-blue-500 outline-none bg-gray-50"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg 
+                  focus:ring-2 focus:ring-[#093A66] focus:border-[#093A66] 
+                  bg-gray-50 outline-none"
                   placeholder="Enter your name"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-[#093A66] mb-2">
                   Email Address
                 </label>
                 <input
@@ -115,14 +117,15 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 
-                  focus:ring-blue-500 focus:border-blue-500 outline-none bg-gray-50"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg 
+                  focus:ring-2 focus:ring-[#093A66] focus:border-[#093A66] 
+                  bg-gray-50 outline-none"
                   placeholder="Enter your email"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-[#093A66] mb-2">
                   Your Message
                 </label>
                 <textarea
@@ -131,16 +134,17 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 
-                  focus:ring-blue-500 focus:border-blue-500 outline-none bg-gray-50"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg 
+                  focus:ring-2 focus:ring-[#093A66] focus:border-[#093A66] 
+                  bg-gray-50 outline-none"
                   placeholder="Write your message..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-3 rounded-lg text-lg font-medium 
-                shadow-md hover:bg-blue-700 transition duration-200"
+                className="w-full bg-[#093A66] text-white py-3 rounded-lg text-lg font-semibold 
+                shadow-md hover:bg-[#072a4a] transition"
               >
                 Send Message
               </button>

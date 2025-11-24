@@ -28,8 +28,11 @@ const Portfolio = () => {
   ];
 
   return (
-    <section className="py-24 bg-white">
-      <div className="container mx-auto px-4">
+    <section className="relative w-full py-24 overflow-hidden">
+      {/* Corporate Light Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-[#EAF3FA] to-white"></div>
+
+      <div className="relative container mx-auto px-4">
         {/* Title */}
         <motion.h2
           variants={fadeIn}
@@ -51,7 +54,10 @@ const Portfolio = () => {
             <motion.div
               variants={fadeIn}
               key={index}
-              className="group relative rounded-3xl overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_28px_rgba(0,0,0,0.12)] transition-all duration-300"
+              className="group relative rounded-3xl overflow-hidden 
+                 shadow-[0_4px_16px_rgba(0,0,0,0.08)] 
+                 hover:shadow-[0_8px_28px_rgba(0,0,0,0.12)] 
+                 transition-all duration-300"
             >
               {/* Image */}
               <img
@@ -61,7 +67,10 @@ const Portfolio = () => {
               />
 
               {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/20 opacity-0 group-hover:opacity-100 transition-all duration-300">
+              <div
+                className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/20 
+                          opacity-0 group-hover:opacity-100 transition-all duration-300"
+              >
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <h3 className="text-2xl font-semibold text-white mb-3">
                     {project.title}
