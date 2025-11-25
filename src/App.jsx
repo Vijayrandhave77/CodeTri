@@ -15,6 +15,10 @@ import Testimonial from "./components/Testimonial.jsx";
 import Faqs from "./components/Faqs.jsx";
 import Terms from "./pages/Terms.jsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
+import FaqPage from "./pages/FaqPage.jsx";
+import RefundPolicy from "./pages/RefundPolicy.jsx";
+import ServicesPage from "./pages/Services.jsx";
+import PortfolioPage from "./pages/PortfolioPage.jsx";
 
 function App() {
   return (
@@ -42,12 +46,14 @@ function App() {
           />
 
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/services" element={<Services />} />
+          <Route path="/services" element={<ServicesPage />} />
           <Route path="/pricing" element={<PricingPage />} />
-          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/terms-conditions" element={<Terms />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/refund-policy" element={<RefundPolicy />} />
+          <Route path="/faqs" element={<FaqPage />} />
         </Routes>
 
         <Footer />

@@ -2,24 +2,23 @@ import { useState } from "react";
 
 const faqs = [
   {
-    question: "KodeTri Technologies किस तरह की services प्रदान करता है?",
+    question: "What services does KodeTri Technologies provide?",
     answer:
-      "हम Web Development, Mobile App Development, UI/UX Design, SEO, Branding और Custom Software Solutions provide करते हैं।",
+      "We offer Web Development, Mobile App Development, UI/UX Design, SEO, Branding, and Custom Software Solutions.",
   },
   {
-    question: "Project deliver करने में कितना time लगता है?",
+    question: "How long does it take to deliver a project?",
     answer:
-      "ये project के size और complexity पर depend करता है। आमतौर पर छोटे projects 2-4 हफ्तों में और बड़े products 1-3 महीनों में deliver होते हैं।",
+      "It depends on the project size and complexity. Small projects usually take 2–4 weeks, while larger products take 1–3 months.",
   },
   {
-    question: "क्या आप maintenance और support भी provide करते हैं?",
-    answer:
-      "हाँ! हम monthly और yearly दोनों तरह के maintenance plans provide करते हैं।",
+    question: "Do you provide maintenance and support?",
+    answer: "Yes! We offer both monthly and yearly maintenance plans.",
   },
   {
-    question: "क्या आप MERN / Next.js / React Native में काम करते हैं?",
+    question: "Do you work with MERN / Next.js / React Native?",
     answer:
-      "हाँ! हमारी team MERN, Next.js, React Native, Node.js और modern tech stack में expert है।",
+      "Yes! Our team is highly skilled in MERN, Next.js, React Native, Node.js, and all modern tech stacks.",
   },
 ];
 
@@ -31,11 +30,11 @@ export default function Faqs() {
       <div className="max-w-4xl mx-auto px-6">
         {/* Heading */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            Frequently Asked <span className="text-blue-600">Questions</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-[#093A66] mb-16">
+            Frequently Asked Questions
           </h2>
           <p className="text-gray-600 mt-2">
-            आपके मन में कोई सवाल है? नीचे आपके सारे doubts clear मिल जाएंगे।
+            Have questions in mind? Here are the answers you need.
           </p>
         </div>
 

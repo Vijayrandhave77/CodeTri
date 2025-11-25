@@ -6,8 +6,8 @@ function Testimonial() {
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Heading */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            What Our <span className="text-blue-600">Clients Say</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-[#093A66] mb-16">
+            What Our Clients Say
           </h2>
           <p className="text-gray-600 mt-2">
             Trusted by businesses, startups, and entrepreneurs worldwide
@@ -37,9 +37,9 @@ function Testimonial() {
             <div className="flex mt-3 text-yellow-400">{"★★★★★"}</div>
 
             <p className="text-gray-600 mt-4">
-              “KodeTri Technologies ने हमारा पूरा web system redesign किया।
-              Performance, UI, और speed सब कुछ next level है. Highly
-              recommended!”
+              “KodeTri Technologies redesigned our entire web system. The
+              performance, UI, and overall speed improved drastically.
+              Absolutely recommended!”
             </p>
           </div>
 
@@ -64,8 +64,9 @@ function Testimonial() {
             <div className="flex mt-3 text-yellow-400">{"★★★★★"}</div>
 
             <p className="text-gray-600 mt-4">
-              “Incredible experience! टीम ने हमारा पूरा MERN stack प्रोजेक्ट
-              बिलकुल 🔥 तरीके से deliver किया. Communication भी top-notch था!”
+              “Amazing experience! The team delivered our full MERN stack
+              project with perfection. Communication and quality were both
+              top-notch!”
             </p>
           </div>
 
@@ -90,8 +91,8 @@ function Testimonial() {
             <div className="flex mt-3 text-yellow-400">{"★★★★★"}</div>
 
             <p className="text-gray-600 mt-4">
-              “Affordable price, premium quality. App speed, optimization, UI —
-              सब कुछ professional level का मिला. Will work with them again!”
+              “Best value for money. The app speed, optimization, and UI were
+              beyond expectations. We will definitely work with them again!”
             </p>
           </div>
         </div>

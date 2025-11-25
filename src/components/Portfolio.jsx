@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { fadeIn, staggerContainer } from "../utils/animations";
 
 const Portfolio = () => {
   const projects = [
@@ -28,51 +27,49 @@ const Portfolio = () => {
   ];
 
   return (
-    <section className="relative w-full py-24 overflow-hidden">
-      {/* Corporate Light Gradient Background */}
+    <section className="relative w-full py-24 md:py-32 overflow-hidden bg-white">
+      {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-[#EAF3FA] to-white"></div>
 
-      <div className="relative container mx-auto px-4">
-        {/* Title */}
+      <div className="relative container mx-auto px-6 md:px-12">
+        {/* Section Title */}
         <motion.h2
-          variants={fadeIn}
-          initial="hidden"
-          animate="visible"
-          className="text-4xl md:text-5xl font-bold text-center text-[#093A66] mb-16"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-4xl md:text-5xl font-extrabold text-center text-[#093A66] mb-24"
         >
           Our Portfolio
         </motion.h2>
 
-        {/* Grid */}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          animate="visible"
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-12"
-        >
+        {/* Projects Grid */}
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           {projects.map((project, index) => (
             <motion.div
-              variants={fadeIn}
               key={index}
-              className="group relative rounded-3xl overflow-hidden 
-                 shadow-[0_4px_16px_rgba(0,0,0,0.08)] 
-                 hover:shadow-[0_8px_28px_rgba(0,0,0,0.12)] 
-                 transition-all duration-300"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              viewport={{ once: true }}
+              className="group relative rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-500"
             >
               {/* Image */}
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-105"
+                className="w-full h-64 md:h-72 object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
               />
 
               {/* Overlay */}
-              <div
-                className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/20 
-                          opacity-0 group-hover:opacity-100 transition-all duration-300"
-              >
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="text-2xl font-semibold text-white mb-3">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end">
+                <motion.div
+                  initial={{ y: 50, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="p-6"
+                >
+                  <h3 className="text-2xl font-bold text-white mb-2">
                     {project.title}
                   </h3>
 
@@ -81,21 +78,21 @@ const Portfolio = () => {
                     {project.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 bg-[#0A67B1] text-white rounded-full text-xs tracking-wide"
+                        className="px-3 py-1 bg-gradient-to-r from-[#0A67B1] to-[#0D86FF] text-white rounded-full text-xs tracking-wide shadow-sm"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
 
-                  <p className="text-gray-200 leading-relaxed text-sm">
+                  <p className="text-gray-200 text-sm md:text-base leading-relaxed">
                     {project.description}
                   </p>
-                </div>
+                </motion.div>
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

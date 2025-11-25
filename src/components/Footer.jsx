@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-gray-300">
       <div className="container mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Company Info */}
           <div>
             <h3 className="text-2xl font-semibold text-white mb-4 tracking-wide">
@@ -14,6 +14,20 @@ const Footer = () => {
               Modern, scalable and high-performance digital solutions crafted
               with passion and precision.
             </p>
+
+            <div className="mt-5 space-y-2 text-gray-400 text-sm">
+              <p>
+                <strong className="text-gray-300">Address:</strong> Indore,
+                India
+              </p>
+              <p>
+                <strong className="text-gray-300">Email:</strong>{" "}
+                kodetritechnologies@gmail.com
+              </p>
+              <p>
+                <strong className="text-gray-300">Phone:</strong> +91 8103292287
+              </p>
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -25,7 +39,7 @@ const Footer = () => {
               <li>
                 <a
                   href="/about"
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
+                  className="hover:text-white text-gray-400 transition-colors duration-200"
                 >
                   About Us
                 </a>
@@ -33,7 +47,7 @@ const Footer = () => {
               <li>
                 <a
                   href="/services"
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
+                  className="hover:text-white text-gray-400 transition-colors duration-200"
                 >
                   Services
                 </a>
@@ -41,9 +55,48 @@ const Footer = () => {
               <li>
                 <a
                   href="/contact"
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
+                  className="hover:text-white text-gray-400 transition-colors duration-200"
                 >
                   Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Policies */}
+          <div>
+            <h3 className="text-xl font-semibold text-white mb-4">Policies</h3>
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href="/terms-conditions"
+                  className="hover:text-white text-gray-400 transition-colors duration-200"
+                >
+                  Terms & Conditions
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/privacy-policy"
+                  className="hover:text-white text-gray-400 transition-colors duration-200"
+                >
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/refund-policy"
+                  className="hover:text-white text-gray-400 transition-colors duration-200"
+                >
+                  Refund Policy
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/faqs"
+                  className="hover:text-white text-gray-400 transition-colors duration-200"
+                >
+                  FAQs
                 </a>
               </li>
             </ul>
@@ -72,7 +125,8 @@ const Footer = () => {
         {/* Divider */}
         <div className="border-t border-gray-700 mt-12 pt-8">
           <p className="text-center text-gray-500 text-sm">
-            © 2025 KodeTri Technologies • All Rights Reserved
+            © {new Date().getFullYear()} KodeTri Technologies • All Rights
+            Reserved
           </p>
         </div>
       </div>
