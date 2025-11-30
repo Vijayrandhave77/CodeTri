@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-image: linear-gradient(to right, white, #E9F3FA, white);
+}

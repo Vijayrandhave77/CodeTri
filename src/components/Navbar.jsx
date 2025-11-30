@@ -131,7 +131,7 @@ const Navbar = () => {
                     key={item.name}
                     to={item.path}
                     onClick={() => setIsOpen(false)}
-                    className="block px-3 py-3 rounded-lg flex justify-between items-center"
+                    className="px-3 py-3 rounded-lg flex justify-between items-center"
                   >
                     <span
                       className={`text-lg ${
