@@ -1,47 +1,54 @@
 import Link from "next/link";
 import Image from "next/image";
+import MobileMenu from "./MobileMenu";
 
-export default function Header() {
-  const menuItems = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Services", path: "/services" },
-    { name: "Pricing", path: "/pricing" },
-    { name: "Portfolio", path: "/portfolio" },
-    { name: "Contact", path: "/contact" },
-  ];
-
+const Header = () => {
   return (
-    <header className="w-full fixed top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 h-16 flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-2">
-          <Image src="/sublogo.png" width={110} height={40} alt="logo" />
+    <header className="bg-white fixed w-full z-50 shadow-md">
+      <div className="max-w-7xl mx-auto px-6 lg:px-20 flex justify-between items-center h-20">
+        <Link href="/">
+          <Image
+            src="/sublogo.png"
+            alt="KodeTri Logo"
+            width={100}
+            height={50}
+            className="object-contain"
+          />
         </Link>
 
-        <nav className="hidden md:flex space-x-8">
-          {menuItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.path}
-              className="text-gray-700 font-medium hover:text-blue-600 transition"
-            >
-              {item.name}
-            </Link>
-          ))}
-        </nav>
+        <nav className="hidden md:flex gap-8 items-center">
+          <Link href="/" className="hover:text-[#064268] font-medium">
+            Home
+          </Link>
+          <Link href="/about" className="hover:text-[#064268] font-medium">
+            About
+          </Link>
+          <Link href="/services" className="hover:text-[#064268] font-medium">
+            Services
+          </Link>
+          <Link href="/portfolio" className="hover:text-[#064268] font-medium">
+            Portfolio
+          </Link>
+          <Link href="/blog" className="hover:text-[#064268] font-medium">
+            Blog
+          </Link>
+          <Link
+            href="/contact"
+            className="relative px-5 py-2 font-medium group"
+          >
+            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#064268] to-[#4DB7FF] rounded-lg"></span>
 
-        <nav className="md:hidden flex gap-4 text-sm">
-          {menuItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.path}
-              className="text-gray-700 font-medium"
-            >
-              {item.name}
-            </Link>
-          ))}
+            <span className="absolute inset-[2px] bg-gradient-to-r from-[#E9F3FA] to-white rounded-lg group-hover:brightness-95 transition duration-300"></span>
+
+            <span className="relative text-[#064268] group-hover:text-[#0A58CD] transition duration-300">
+              Contact
+            </span>
+          </Link>
         </nav>
+        <MobileMenu />
       </div>
     </header>
   );
-}
+};
+
+export default Header;
