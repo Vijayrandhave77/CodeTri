@@ -26,7 +26,7 @@ export default function Blog() {
   ];
 
   return (
-    <div className="bg-gray-200 p-10">
+    <div className=" p-5 pb-10">
       <div className="grid md:grid-cols-3 gap-6">
         {blogs.map((blog, index) => (
           <div
