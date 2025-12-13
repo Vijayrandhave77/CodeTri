@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Package() {
   return (
-    <section className="pb-16 ">
+    <section className="pb-10 ">
       <div className="max-w-7xl mx-auto px-4">
       
 

@@ -39,45 +39,42 @@ const testimonials = [
 export default function Testimonial() {
   const [active, setActive] = useState(0);
 
-  const next = () =>
-    setActive((prev) => (prev + 1) % testimonials.length);
-
+  const next = () => setActive((p) => (p + 1) % testimonials.length);
   const prev = () =>
-    setActive((prev) =>
-      prev === 0 ? testimonials.length - 1 : prev - 1
-    );
+    setActive((p) => (p === 0 ? testimonials.length - 1 : p - 1));
 
   return (
-    <section className="py-28 ">
+    <section className="py-17 ">
       <div className="max-w-7xl mx-auto px-6">
 
+        {/* ARROWS */}
+        <div className="flex gap-3 mb-12">
+          <button
+            onClick={prev}
+            className="w-11 h-11 rounded-full bg-[#EEE9FF] flex items-center justify-center"
+          >
+            ←
+          </button>
+          <button
+            onClick={next}
+            className="w-11 h-11 rounded-full bg-gradient-to-r from-[#61b7c7] to-[#043a63] text-white flex items-center justify-center"
+          >
+            →
+          </button>
+        </div>
+
         {/* MAIN ROW */}
-        <div className="relative flex items-start gap-32">
+        <div className="flex items-start gap-28">
 
-          {/* ARROWS */}
-          <div className="absolute -top-20 left-0 flex gap-3 z-20">
-            <button
-              onClick={prev}
-              className="w-11 h-11 rounded-full bg-[#EEE9FF] flex items-center justify-center"
-            >
-              ←
-            </button>
-            <button
-              onClick={next}
-              className="w-11 h-11 rounded-full bg-gradient-to-r from-violet-500 to-violet-700 text-white flex items-center justify-center"
-            >
-              →
-            </button>
-          </div>
-
-          {/* IMAGE CARD */}
+          {/* LEFT – IMAGE CARD */}
           <div className="relative">
-            <div className="bg-gradient-to-b from-[#EFE9FF] to-[#E6DEFF] rounded-2xl p-4 shadow-xl">
+            <div className="bg-gradient-to-b from-[#E3F0FF] via-[#CFE6FF] to-[#B8DCFF]
+rounded-2xl p-4 shadow-xl">
               <div className="bg-white p-3 rounded-xl">
                 <img
                   src={testimonials[active].image}
-                  alt=""
                   className="w-[260px] h-[300px] object-cover rounded-lg"
+                  alt=""
                 />
               </div>
 
@@ -90,54 +87,50 @@ export default function Testimonial() {
                 </p>
               </div>
             </div>
-          </div>
 
-          {/* TEXT BUBBLE (FIXED POSITION) */}
-          <div className="relative">
-            <div className="relative bg-white border border-gray-200 rounded-xl p-6 shadow-md max-w-md">
-              <p className="text-gray-700 leading-relaxed">
-                “{testimonials[active].text}”
-              </p>
-
-              {/* SPEECH TAIL */}
-              <div className="absolute -left-3 top-8 w-6 h-6 bg-white border-l border-b rotate-45"></div>
+            {/* TEXT BUBBLE */}
+            <div className="absolute left-full -top-10 -ml-10 w-[400px]">
+              <div className="relative bg-[#ffffff00] border border-gray-200 rounded-xl p-6 shadow-md">
+                <p className="text-gray-700 leading-relaxed">
+                  “{testimonials[active].text}”
+                </p>
+              
+              </div>
             </div>
           </div>
 
-        </div>
-         <div>
-  {/* PAGINATION */}
-        <div className="flex justify-center mt-16">
-          <span className="px-4 py-1 border border-violet-500 rounded-full text-sm text-violet-600">
-            {active + 1} / {testimonials.length}
-          </span>
-        </div>
+          {/* RIGHT – THUMBNAILS (BOTTOM ALIGNED) */}
+          <div className="flex flex-col justify-end h-[360px]">
 
-        {/* THUMBNAILS */}
-        <div className="flex justify-center gap-6 mt-6">
-          {testimonials.map((item, index) => (
-            <div
-              key={index}
-              onClick={() => setActive(index)}
-              className={`cursor-pointer w-20 h-20 rounded-xl overflow-hidden border transition-all
-                ${
-                  active === index
-                    ? "border-violet-500 scale-105"
-                    : "border-gray-200 grayscale opacity-70"
-                }`}
-            >
-              <img
-                src={item.image}
-                className="w-full h-full object-cover"
-                alt=""
-              />
+            {/* PAGINATION */}
+            <span className="mb-6 self-center px-4 py-1 border border-violet-500 rounded-full text-sm text-violet-600">
+              {active + 1} / {testimonials.length}
+            </span>
+
+            {/* THUMB LIST */}
+            <div className="flex gap-6">
+              {testimonials.map((item, index) => (
+                <div
+                  key={index}
+                  onClick={() => setActive(index)}
+                  className={`cursor-pointer w-20 h-20 rounded-xl overflow-hidden border transition-all
+                    ${
+                      active === index
+                        ? "border-violet-500 scale-105"
+                        : "border-gray-200 grayscale opacity-70"
+                    }`}
+                >
+                  <img
+                    src={item.image}
+                    className="w-full h-full object-cover"
+                    alt=""
+                  />
+                </div>
+              ))}
             </div>
-          ))}
+
+          </div>
         </div>
-
-         </div>
-      
-
       </div>
     </section>
   );
