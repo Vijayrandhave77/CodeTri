@@ -43,7 +43,81 @@ body {
     transform: translateY(0px);
   }
 }
-
+/* 
  .blog a{
   color: ;
- }
+ } */
+ /* Container Background */
+.mission-vision-section {
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+/* Card Styling */
+.kv-card {
+  background: #ffffff;
+  padding: 3rem;
+  border-radius: 15px;
+  border: 1px solid #eef2f6;
+  box-shadow: 0 4px 20px rgba(0, 51, 102, 0.05);
+  transition: all 0.4s ease;
+  text-align: left;
+}
+
+/* Hover Effect for Card */
+.kv-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 51, 102, 0.1);
+  border-color: rgba(0, 188, 212, 0.3);
+}
+
+/* Color Accents */
+.vision-card { border-top: 4px solid #003366; }
+.mission-card { border-top: 4px solid #00bcd4; }
+
+/* Icon Styling & Animation */
+.kv-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  color: #003366;
+  position: relative;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth rotation */
+}
+
+/* The Icon Rotate Animation */
+.kv-card:hover .kv-icon {
+  transform: rotateY(360deg); /* Modern flip-rotate */
+}
+
+.icon-bg {
+  position: absolute;
+  top: 5px;
+  left: -8px;
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 188, 212, 0.1);
+  border-radius: 12px;
+  z-index: -1;
+}
+
+/* Typography */
+.kv-title {
+  color: #003366;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+.kv-text {
+  color: #6c757d;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+/* Responsive Fix for small screens */
+@media (max-width: 576px) {
+  .kv-card {
+    padding: 2rem;
+  }
+}
