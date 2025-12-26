@@ -7,6 +7,7 @@ import AboutCompany from "@/components/about-us/AboutCompany";
 import MissionVission from "@/components/about-us/MissionVission";
 import CommonBanner from "@/components/about-us/CommonBanner";
 import ServicesSection from "@/components/services/ServicesSection";
+import GetInTouch from "@/components/about-us/GetInTouch";
 
 
 export default function page() {
@@ -22,6 +23,7 @@ export default function page() {
         <AboutCompany />
         <MissionVission />
          <ServicesSection />
+         <GetInTouch/>
     </div>
   );
 }
