@@ -36,43 +36,51 @@ const techs = [
 
 export default function Technology() {
   return (
-    <section className="py-28 bg-gradient-to-r from-[#020024] via-[#0b2a6f] to-[#143a8a]">
-      <div className="max-w-6xl mx-auto text-center px-6">
+    <section className="relative py-28 bg-gradient-to-br from-[#020024] via-[#0b2a6f] to-[#143a8a]">
+      <div className="max-w-6xl mx-auto px-6 text-center">
 
-        <h2 className="text-4xl font-bold text-white">
+        {/* TITLE */}
+        <h2 className="text-4xl font-semibold text-white">
           Technologies We Use
         </h2>
+
         <p className="mt-3 text-sm text-blue-200">
           We leverage cutting-edge technologies to build powerful and scalable applications.
         </p>
 
-        {/* OUTER LINES */}
-        <div className="mt-16 border-t border-b border-white/20">
+        {/* GRID WRAPPER */}
+        <div className="relative mt-20 border-t border-b border-white/15">
 
-          {/* GRID */}
-          <div className="grid grid-cols-3 divide-x divide-white/20">
+          {/* VERTICAL GRID LINES (ONLY 2) */}
+          <div className="absolute inset-0 grid grid-cols-3 pointer-events-none">
+            <div className="border-r border-white/15"></div>
+            <div className="border-r border-white/15"></div>
+            <div></div>
+          </div>
 
-            {techs.map((t, i) => {
+          {/* CONTENT */}
+          <div className="relative grid grid-cols-3">
+            {techs.map((tech, i) => {
               const isLastRow = i >= techs.length - 3;
 
               return (
                 <div
                   key={i}
-                  className={`py-14 flex flex-col items-center justify-center
-                    ${!isLastRow ? "border-b border-white/20" : ""}
+                  className={`h-[140px] flex flex-col items-center justify-center
+                    ${!isLastRow ? "border-b border-white/15" : ""}
                   `}
                 >
-                  <div className="text-4xl text-blue-300 mb-3">
-                    {t.icon}
+                  <div className="text-[36px] text-white/80 mb-3">
+                    {tech.icon}
                   </div>
-                  <p className="text-white text-sm font-medium">
-                    {t.name}
-                  </p>
+                  <span className="text-white text-sm font-medium tracking-wide">
+                    {tech.name}
+                  </span>
                 </div>
               );
             })}
-
           </div>
+
         </div>
       </div>
     </section>
