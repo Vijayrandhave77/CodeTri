@@ -142,7 +142,7 @@ const ContactUs = () => {
               className="md:col-span-2 input-field"
             />
             <textarea
-              rows="4"
+              rows={4}
               placeholder="Message"
               className="md:col-span-2 input-field resize-none"
             ></textarea>

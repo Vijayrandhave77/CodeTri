@@ -1,131 +1,83 @@
 import React from "react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, Calendar, User } from "lucide-react";
 
 const blogs = [
   {
-    category: "Design",
-    title: "UX review presentations",
-    description:
-      "How do you create compelling presentations that wow your colleagues and impress your managers?",
+    tag: "Teach",
+    title: "How to Avoid the Biggest College Admission Mistakes",
     image:
       "https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1200",
-    author: "Olivia Rhye",
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
-    date: "20 Jan 2022",
+    author: "Roboth smith",
+    date: "Oct, 23, 2025",
   },
   {
-    category: "Product",
-    title: "Migrating to Linear 101",
-    description:
-      "Linear helps streamline software projects, sprints, tasks, and bug tracking. Here’s how to get started.",
+    tag: "Learn",
+    title: "How Digital Platforms Are Shaping Business Schools",
     image:
       "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200",
-    author: "Phoenix Baker",
-    avatar: "https://randomuser.me/api/portraits/men/46.jpg",
-    date: "18 Jan 2022",
+    author: "Roboth smith",
+    date: "Oct, 23, 2025",
   },
   {
-    category: "Software Engineering",
-    title: "Building your API Stack",
-    description:
-      "The rise of RESTful APIs has been met by a rise in tools for creating, testing, and managing them.",
+    tag: "Study",
+    title: "Why Business Students Need Tech Skills for the Future",
     image:
       "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200",
-    author: "Lana Steiner",
-    avatar: "https://randomuser.me/api/portraits/women/68.jpg",
-    date: "18 Jan 2022",
+    author: "Roboth smith",
+    date: "Oct, 23, 2025",
   },
-   {
-    category: "Design",
-    title: "UX review presentations",
-    description:
-      "How do you create compelling presentations that wow your colleagues and impress your managers?",
-    image:
-      "https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1200",
-    author: "Olivia Rhye",
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
-    date: "20 Jan 2022",
-  },
-  {
-    category: "Product",
-    title: "Migrating to Linear 101",
-    description:
-      "Linear helps streamline software projects, sprints, tasks, and bug tracking. Here’s how to get started.",
-    image:
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200",
-    author: "Phoenix Baker",
-    avatar: "https://randomuser.me/api/portraits/men/46.jpg",
-    date: "18 Jan 2022",
-  },
-  {
-    category: "Software Engineering",
-    title: "Building your API Stack",
-    description:
-      "The rise of RESTful APIs has been met by a rise in tools for creating, testing, and managing them.",
-    image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200",
-    author: "Lana Steiner",
-    avatar: "https://randomuser.me/api/portraits/women/68.jpg",
-    date: "18 Jan 2022",
-  },
-  
 ];
 
 const Blogcard = () => {
   return (
-    <section className=" py-16">
+    <section className="py-16 bg-[#f2f7ff]">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           {blogs.map((blog, index) => (
             <div
               key={index}
-              className="group bg-white rounded-xl shadow-sm hover:shadow-md transition duration-300"
+              className="bg-white rounded-3xl border border-[#e1edff] overflow-hidden hover:shadow-lg transition"
             >
               {/* Image */}
-              <div className="p-4 overflow-hidden">
+              <div className="relative p-5">
                 <img
                   src={blog.image}
                   alt={blog.title}
-                  className="
-                    h-44 w-full object-cover
-                    transition-all duration-500 ease-out
-                    group-hover:scale-105
-                    group-hover:rounded-sm
-                  "
+                  className="w-full h-56 object-cover rounded-2xl transition-transform duration-500 hover:scale-105"
                 />
+
+                {/* Badge */}
+                <span className="absolute top-8 left-8 bg-[#0B5ED7] text-white text-sm font-medium px-5 py-2 rounded-lg">
+                  {blog.tag}
+                </span>
               </div>
 
               {/* Content */}
-              <div className="px-6 pb-6">
-                {/* Category */}
-                <span className="text-sm font-semibold text-[#0B5ED7]">
-                  {blog.category}
-                </span>
+              <div className="px-8 pb-8">
+                {/* Meta */}
+                <div className="flex items-center gap-6 text-sm text-gray-500 mb-4">
+                  <span className="flex items-center gap-2">
+                    <Calendar size={16} className="text-[#0B5ED7]" />
+                    {blog.date}
+                  </span>
+                  <span className="flex items-center gap-2">
+                    <User size={16} className="text-[#2EC4E6]" />
+                    {blog.author}
+                  </span>
+                </div>
 
                 {/* Title */}
-                <h3 className="mt-3 text-lg font-semibold text-gray-900 flex justify-between items-start gap-2 group-hover:text-[#0B5ED7] transition">
+                <h3 className="text-xl font-semibold text-gray-900 leading-snug">
                   {blog.title}
-                  <ArrowUpRight className="w-5 h-5 text-[#2EC4E6] mt-1" />
                 </h3>
 
-                <p className="mt-3 text-sm text-gray-600 leading-relaxed">
-                  {blog.description}
-                </p>
-
-                {/* Author */}
-                <div className="mt-6 flex items-center gap-3">
-                  <img
-                    src={blog.avatar}
-                    alt={blog.author}
-                    className="w-10 h-10 rounded-full"
-                  />
-                  <div>
-                    <p className="text-sm font-medium text-gray-900">
-                      {blog.author}
-                    </p>
-                    <p className="text-xs text-gray-500">{blog.date}</p>
-                  </div>
-                </div>
+                {/* Link */}
+                <a
+                  href="blog/[slug]"
+                  className="mt-6 inline-flex items-center gap-2 text-gray-700 font-medium hover:text-[#0B5ED7] transition"
+                >
+                  More Details <ArrowRight size={18} />
+                </a>
               </div>
             </div>
           ))}
