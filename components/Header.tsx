@@ -32,6 +32,9 @@ const Header = () => {
           <Link href="/blog" className="hover:text-[#064268] font-medium">
             Blog
           </Link>
+           <Link href="/contact" className="hover:text-[#064268] font-medium">
+            Contact Us
+          </Link>
           <Link
             href="/contact"
             className="relative px-5 py-2 font-medium group"
